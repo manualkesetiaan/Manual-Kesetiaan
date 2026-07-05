@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="ms-MY">
+<head>
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'SEU_PIXEL_ID_AQUI');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+  /></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ketahui Tahap Risiko Ketidaksetiaan Dalam Hubungan Anda</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red-ferrari: #E8000D;
+      --white: #FFFFFF;
+      --yellow: #FFD700;
+      --black: #0A0A0A;
+      --gray-light: #F4F4F4;
+      --gray-border: #D1D1D1;
+      --pink: #E0115F;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Barlow', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.55;
+      font-weight: 500;
+      overflow-x: hidden;
+    }
+    .app-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 40px;
+    }
+    .app-container {
+      width: 100%;
+      max-width: 520px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .alert-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--red-ferrari);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.3;
+      padding: 10px 15px;
+      text-align: center;
+      z-index: 1000;
+      border-bottom: 3px solid var(--black);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .progress-bar-container {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background-color: var(--gray-light);
+      z-index: 999;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: var(--red-ferrari);
+      width: 8.3%;
+      transition: width 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+    }
+    .counter-widget {
+      align-self: center;
+      background-color: var(--black);
+      border: 2px solid var(--yellow);
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      box-shadow: 3px 3px 0px var(--black);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #1ED760;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #1ED760;
+      animation: pulse-glow 1.8s infinite;
+    }
+    .counter-text {
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .counter-number {
+      color: var(--yellow);
+      font-weight: 900;
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 16px;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #333333;
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .badges-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .badge-card {
+      background-color: var(--white);
+      border: 2px solid var(--black);
+      box-shadow: 3px 3px 0px var(--black);
+      padding: 14px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--black);
+    }
+    .badge-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .btn-action {
+      display: block;
+      width: 100%;
+      background-color: var(--red-ferrari);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 18px 24px;
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0px var(--black);
+      cursor: pointer;
+      transition: all 0.1s ease;
+      letter-spacing: 0.5px;
+      margin-top: 20px;
+      outline: none;
+    }
+    .btn-action:hover {
+      background-color: var(--black);
+      color: var(--yellow);
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--black);
+    }
+    .btn-action:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px var(--black);
+    }
+    .question-title {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.25;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: var(--black);
+      border-left: 5px solid var(--red-ferrari);
+      padding-left: 12px;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .option-button {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      background-color: var(--white);
+      color: var(--black);
+      border: 2px solid var(--black);
+      box-shadow: 3px 3px 0px var(--black);
+      padding: 16px 20px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.1s ease;
+      outline: none;
+    }
+    .option-button:hover {
+      background-color: var(--black);
+      color: var(--yellow);
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0px var(--black);
+    }
+    .option-button.clicked {
+      background-color: var(--red-ferrari);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    .break-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .break-stat-card {
+      background-color: var(--black);
+      color: var(--white);
+      border-left: 6px solid var(--red-ferrari);
+      padding: 20px;
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+    }
+    .break-stat-text {
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .break-quote {
+      font-size: 15px;
+      font-style: italic;
+      color: #555555;
+      border-left: 3px solid var(--gray-border);
+      padding-left: 15px;
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+    }
+    .loader-title {
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--black);
+    }
+    .loader-progress-bar {
+      width: 100%;
+      height: 12px;
+      background-color: var(--gray-light);
+      border: 2px solid var(--black);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .loader-progress-fill {
+      height: 100%;
+      background-color: var(--red-ferrari);
+      width: 0%;
+      transition: width 0.8s ease-in-out;
+    }
+    .loader-status-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .loader-status-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #777777;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+    .loader-status-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .loader-status-item.active {
+      color: var(--black);
+    }
+    .loader-spinner {
+      width: 16px;
+      height: 16px;
+      border: 3px solid var(--gray-border);
+      border-top: 3px solid var(--red-ferrari);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .loader-check {
+      color: #1ED760;
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 10, 10, 0.9);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-card {
+      background-color: var(--white);
+      border: 4px solid var(--red-ferrari);
+      box-shadow: 6px 6px 0px var(--black);
+      width: 100%;
+      max-width: 440px;
+      padding: 30px 24px;
+      animation: modal-enter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .modal-question {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.35;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .result-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      text-align: left;
+    }
+    .result-title {
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .result-paragraph {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1A1A1A;
+    }
+    .result-subhead {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--red-ferrari);
+      margin-top: 10px;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 4px;
+    }
+    .highlight-yellow {
+      background-color: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+      padding: 2px 4px;
+    }
+    .screen {
+      display: none;
+      animation: screen-fade-in 0.4s ease forwards;
+    }
+    .screen.active {
+      display: block;
+    }
+    .pulse-btn {
+      animation: cta-pulse-anim 1.8s infinite ease-in-out;
+    }
+    @keyframes cta-pulse-anim {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 6px #1ED760; }
+      50% { transform: scale(1.15); box-shadow: 0 0 12px #1ED760; }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes screen-fade-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes modal-enter {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media (min-width: 768px) {
+      .app-wrapper {
+        padding-top: 120px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      .question-title {
+        font-size: 22px;
+      }
+      .option-button {
+        font-size: 17px;
+        padding: 18px 24px;
+      }
+      .btn-action {
+        font-size: 20px;
+        padding: 20px 28px;
+      }
+      .result-title {
+        font-size: 26px;
+      }
+      .result-paragraph {
+        font-size: 16px;
+      }
+    }
+
+    .tsl-wrapper {
+      min-height: 100vh;
+      background: var(--white);
+      color: var(--black);
+      padding: 20px 0 56px;
+    }
+    .tsl-container {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+    .tsl-reservation-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: calc(100% + 36px);
+      margin: -20px -18px 22px;
+      padding: 12px 16px;
+      background: var(--black);
+      color: var(--white);
+      border-bottom: 4px solid var(--red-ferrari);
+      box-shadow: 0 6px 0 rgba(10, 10, 10, 0.15);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .tsl-reservation-bar strong {
+      display: inline-flex;
+      min-width: 78px;
+      justify-content: center;
+      background: var(--yellow);
+      color: var(--black);
+      border: 2px solid var(--red-ferrari);
+      padding: 4px 8px;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .tsl-block {
+      margin: 0 0 18px;
+    }
+    .tsl-block p,
+    .tsl-list-line p {
+      font-size: 17px;
+      line-height: 1.62;
+      color: #141414;
+      font-weight: 500;
+    }
+    .tsl-block strong,
+    .tsl-list-line strong {
+      font-weight: 900;
+    }
+    .tsl-block em {
+      font-style: italic;
+    }
+    .tsl-alert-copy {
+      background: var(--black);
+      color: var(--white);
+      border: 3px solid var(--red-ferrari);
+      box-shadow: 5px 5px 0 var(--red-ferrari);
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+    .tsl-alert-copy p {
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.38;
+      font-weight: 700;
+    }
+    .tsl-qualification {
+      background: var(--yellow);
+      color: var(--black);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      padding: 14px 16px;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+    .tsl-qualification p {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .tsl-headline,
+    .tsl-subheadline {
+      margin: 26px 0 14px;
+      color: var(--black);
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      text-transform: none;
+    }
+    .tsl-headline {
+      font-size: 28px;
+      font-weight: 900;
+      border-left: 7px solid var(--red-ferrari);
+      padding-left: 12px;
+    }
+    .tsl-product-figure {
+      margin: 26px 0 28px;
+      background: transparent;
+    }
+    .tsl-product-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .tsl-price {
+      margin: 16px 0 18px;
+      text-align: center;
+    }
+    .tsl-price p {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      border: 4px solid var(--black);
+      box-shadow: 5px 5px 0 var(--red-ferrari);
+      padding: 12px 22px;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .tsl-list-line {
+      background: #fff7c9;
+      border-left: 5px solid var(--red-ferrari);
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .faq-block {
+      border: 2px solid var(--black);
+      box-shadow: 3px 3px 0px var(--black);
+      background-color: var(--gray-light);
+      margin-top: 15px;
+    }
+    .faq-question-box {
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 16px 20px;
+      font-size: 17px;
+      font-weight: 800;
+      border-bottom: 2px solid var(--black);
+    }
+    .faq-answer-box {
+      padding: 16px 20px;
+      font-size: 17px;
+      line-height: 1.62;
+      background-color: var(--white);
+    }
+    @media (min-width: 768px) {
+      .tsl-wrapper { padding-bottom: 72px; }
+      .tsl-container { max-width: 640px; padding: 0 24px; }
+      .tsl-reservation-bar { width: calc(100% + 48px); margin-left: -24px; margin-right: -24px; }
+      .tsl-block p, .tsl-list-line p { font-size: 18px; }
+      .tsl-headline { font-size: 34px; }
+      .tsl-subheadline { font-size: 28px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="alert-bar" id="quizAlertBar">
+    Disebabkan permintaan akses yang tinggi, kami hadkan diagnosis ini kepada hanya 10 wanita bertuah sahaja, semoga berjaya.
+  </div>
+  <div class="progress-bar-container" id="quizProgressBarContainer">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="app-wrapper">
+    <div class="app-container">
+      <div class="counter-widget" id="visitorWidget">
+        <div class="pulse-dot"></div>
+        <div class="counter-text">Akses: <span class="counter-number" id="liveCounter">984</span></div>
+      </div>
+      <div class="screen active" id="screen-1">
+        <h1>Ketahui Tahap Risiko Ketidaksetiaan Dalam Hubungan Anda</h1>
+        <p class="subtitle">Diagnosis 2 minit, berdasarkan tingkah laku sebenar lebih 90 ribu pasangan.</p>
+
+        <div class="badges-grid">
+          <div class="badge-card">
+            <span class="badge-icon">🎯</span>
+            <span>Ketepatan Disahkan 93%</span>
+          </div>
+          <div class="badge-card">
+            <span class="badge-icon">⏱</span>
+            <span>Ujian 2 minit</span>
+          </div>
+          <div class="badge-card">
+            <span class="badge-icon">🔒</span>
+            <span>100% Sulit</span>
+          </div>
+          <div class="badge-card">
+            <span class="badge-icon">📋</span>
+            <span>Keputusan Diperibadikan</span>
+          </div>
+        </div>
+        <button class="btn-action" id="btn-start" onclick="nextScreen(2)">Mula Diagnosis</button>
+      </div>
+      <div class="screen" id="screen-2">
+        <p class="question-title">Apakah situasi anda sekarang?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(2, 3)">
+            <span class="badge-icon">👩</span><span>Berkahwin</span>
+          </button>
+          <button class="option-button" onclick="selectOption(2, 3)">
+            <span class="badge-icon">💑</span><span>Bercinta atau tinggal serumah</span>
+          </button>
+          <button class="option-button" onclick="selectOption(2, 3)">
+            <span class="badge-icon">💬</span><span>Dalam hubungan tanpa status jelas</span>
+          </button>
+          <button class="option-button" onclick="selectOption(2, 3)">
+            <span class="badge-icon">❤️</span><span>Bujang, tapi ada orang diminati</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-3">
+        <p class="question-title">Sudah berapa lama anda bersama?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(3, 4)">
+            <span>Kurang dari 1 tahun</span>
+          </button>
+          <button class="option-button" onclick="selectOption(3, 4)">
+            <span>1 hingga 3 tahun</span>
+          </button>
+          <button class="option-button" onclick="selectOption(3, 4)">
+            <span>3 hingga 10 tahun</span>
+          </button>
+          <button class="option-button" onclick="selectOption(3, 4)">
+            <span>Lebih dari 10 tahun</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-4">
+        <p class="question-title">Bagaimana keintiman antara anda berdua sekarang, berbanding permulaan hubungan?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(4, 5)">
+            <span class="badge-icon">🔥</span><span>Masih kuat, tapi rasa mungkin akan pudar</span>
+          </button>
+          <button class="option-button" onclick="selectOption(4, 5)">
+            <span class="badge-icon">✨</span><span>Menurun banyak, dah jadi rutin</span>
+          </button>
+          <button class="option-button" onclick="selectOption(4, 5)">
+            <span class="badge-icon">❄️</span><span>Hampir tiada lagi</span>
+          </button>
+          <button class="option-button" onclick="selectOption(4, 5)">
+            <span class="badge-icon">🤔</span><span>Tak pasti nak cakap</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-5">
+        <div class="break-container">
+          <p class="question-title" style="margin-bottom: 0;">Sebelum teruskan, lihat ini.</p>
+
+          <div class="break-stat-card">
+            <p class="break-stat-text">Daripada setiap 10 wanita yang menjawab diagnosis ini setakat ini, 7 mengesahkan mereka rasa pasangan mereka lebih jauh berbanding setahun lalu.</p>
+          </div>
+          <p class="break-quote">
+            "Saya ingatkan cuma perasaan saya sahaja. Sehinggalah saya nampak skor saya di sini." — J. Andrade, 29 tahun
+          </p>
+          <button class="btn-action" onclick="nextScreen(6)">Teruskan</button>
+        </div>
+      </div>
+      <div class="screen" id="screen-6">
+        <p class="question-title">Pernahkah anda bandingkan diri dengan wanita lain yang mungkin pernah dia lihat, sama ada di telefonnya atau di jalanan?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(6, 7)">
+            <span>Ya, kerap</span>
+          </button>
+          <button class="option-button" onclick="selectOption(6, 7)">
+            <span>Pernah beberapa kali</span>
+          </button>
+          <button class="option-button" onclick="selectOption(6, 7)">
+            <span>Tak pernah terfikir tentang itu</span>
+          </button>
+          <button class="option-button" onclick="selectOption(6, 7)">
+            <span>Lebih suka tidak menjawab</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-7">
+        <p class="question-title">Pernahkah anda syak yang dia berminat atau mengintai wanita lain?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(7, 8)">
+            <span>Ya, dan ia menghantui saya dari dalam</span>
+          </button>
+          <button class="option-button" onclick="selectOption(7, 8)">
+            <span>Pernah syak, tapi saya biarkan sahaja</span>
+          </button>
+          <button class="option-button" onclick="selectOption(7, 8)">
+            <span>Tak pernah syak, tapi takut ia berlaku suatu hari</span>
+          </button>
+          <button class="option-button" onclick="selectOption(7, 8)">
+            <span>Saya percaya sepenuhnya padanya</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-8">
+        <p class="question-title">Bagaimana dia biasanya balas mesej anda sekarang?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(8, 9)">
+            <span>Serta-merta, mesra macam biasa</span>
+          </button>
+          <button class="option-button" onclick="selectOption(8, 9)">
+            <span>Lambat, dan bila balas pun ringkas sahaja</span>
+          </button>
+          <button class="option-button" onclick="selectOption(8, 9)">
+            <span>Berubah-ubah, kadang mesra, kadang dingin</span>
+          </button>
+          <button class="option-button" onclick="selectOption(8, 9)">
+            <span>Dia yang selalu tunggu saya balas dahulu</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-9">
+        <p class="question-title">Bila anda fikirkan semua ini, apa yang paling membebankan fikiran anda?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(9, 10)">
+            <span>Saya rasa saya tak cukup baik untuknya</span>
+          </button>
+          <button class="option-button" onclick="selectOption(9, 10)">
+            <span>Saya rasa ini cuma fasa sementara sahaja</span>
+          </button>
+          <button class="option-button" onclick="selectOption(9, 10)">
+            <span>Saya rasa dia takkan berani khianati saya</span>
+          </button>
+          <button class="option-button" onclick="selectOption(9, 10)">
+            <span>Lebih baik saya tak fikirkan langsung</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-10">
+        <p class="question-title">Jika anda boleh pastikan satu perkara sahaja untuk selama-lamanya bersamanya, apakah itu?</p>
+        <div class="options-list">
+          <button class="option-button" onclick="selectOption(10, 11)">
+            <span>Dia takkan pandang wanita lain macam dia pandang saya</span>
+          </button>
+          <button class="option-button" onclick="selectOption(10, 11)">
+            <span>Dia menginginkan saya sama seperti pada permulaan dahulu</span>
+          </button>
+          <button class="option-button" onclick="selectOption(10, 11)">
+            <span>Dia takkan sesekali berani khianati saya</span>
+          </button>
+          <button class="option-button" onclick="selectOption(10, 11)">
+            <span>Keluarga kami akan kekal bersatu selamanya</span>
+          </button>
+        </div>
+      </div>
+      <div class="screen" id="screen-11">
+        <div class="loading-container">
+          <h2 class="loader-title">Mengira tahap risiko anda.</h2>
+
+          <div class="loader-progress-bar">
+            <div class="loader-progress-fill" id="loaderProgressFill"></div>
+          </div>
+          <div class="loader-status-list">
+            <div class="loader-status-item" id="loading-step-1">
+              <div class="loader-spinner" id="spinner-step-1"></div>
+              <div class="loader-check" id="check-step-1" style="display: none;">✓</div>
+              <span>Membandingkan jawapan anda dengan lebih 90 ribu kes sebenar.</span>
+            </div>
+
+            <div class="loader-status-item" id="loading-step-2">
+              <div class="loader-spinner" id="spinner-step-2" style="display: none;"></div>
+              <div class="loader-check" id="check-step-2" style="display: none;">✓</div>
+              <span>Membandingkan hubungan anda dengan corak tingkah laku sebelum berlakunya penderhakaan.</span>
+            </div>
+
+            <div class="loader-status-item" id="loading-step-3">
+              <div class="loader-spinner" id="spinner-step-3" style="display: none;"></div>
+              <div class="loader-check" id="check-step-3" style="display: none;">✓</div>
+              <span>Menentukan sama ada anda layak untuk kandungan terhad diagnosis ini.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="screen" id="screen-12">
+        <div class="result-container">
+          <h2 class="result-title">Diagnosis anda hampir siap.</h2>
+          <p class="result-paragraph">Tapi sebelum saya tunjukkan keputusan, saya perlu beritahu anda dua perkara.</p>
+
+          <p class="result-subhead">Yang pertama.</p>
+          <p class="result-paragraph">Teknik yang sama yang akan muncul dalam keputusan anda ini pernah digunakan pada nama-nama yang mungkin anda tidak sangka.</p>
+          <p class="result-paragraph">Pelakon itu yang selalu di kulit majalah dan berlagak suami sempurna. Pemain bola itu yang bermain di liga termahal Eropah, sementara isterinya muat naik gambar keluarga setiap hujung minggu. Penyanyi itu yang menyanyi lagu cinta abadi di pentas, tapi bersiar-siar secara sulit sekurang-kurangnya sekali sebulan. Usahawan itu yang semua orang ikuti di Instagram kerana nasihat perkahwinan sempurnanya.</p>
+          <p class="result-paragraph">Saya takkan beritahu siapa mereka. Sebenarnya, tak perlu pun. Anda sudah terbayang satu nama dalam kepala semasa membaca ini.</p>
+          <p class="result-paragraph">Dan sebab itulah kandungan ini tidak boleh kekal tersiar untuk lama.</p>
+
+          <p class="result-subhead">Perkara kedua, dan ini lebih penting lagi.</p>
+          <p class="result-paragraph">Anda takkan sesekali melihat semua ini dalam bentuk video. Bukan sekadar kerana video lebih mudah bocor. Tapi kerana video ada wajah, ada suara, ada bilik yang boleh dikenal pasti. Teks tiada semua itu.</p>
+
+          <p class="result-paragraph">
+            <span class="highlight-yellow">Wanita-wanita yang membantu saya menulis kandungan ini hidup dalam kerahsiaan mutlak.</span>
+          </p>
+
+          <p class="result-paragraph">Jika ada rakaman dengan sebarang petunjuk siapa lelaki di sebelah sana, kerjaya dia musnah, begitu juga kerjaya mereka.</p>
+          <p class="result-paragraph">Sebab itu mereka hanya setuju untuk menulis ini bersama saya. Tanpa tunjuk wajah, tanpa suara, tanpa cara untuk buktikan siapa itu siapa. Hanya teknik yang kami gunakan, tepat seperti fungsinya.</p>
+          <p class="result-paragraph">Diagnosis anda sudah siap.</p>
+          <button class="btn-action pulse-btn" id="btn-final-quiz">Lihat Keputusan Lengkap Saya</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="tsl" class="tsl-wrapper" style="display: none;">
+    <div class="tsl-container">
+        <div class="tsl-reservation-bar" id="tslReservationBar"><span>Tempat anda telah ditempah selama:</span><strong id="tslCountdown">30:00</strong></div>
+        <section class="tsl-block tsl-alert-copy"><p><strong>PERHATIAN:</strong> Atas sebab kerahsiaan peribadi, laman ini diprogramkan untuk dilawati <strong>hanya sekali sahaja, dan 9 akses telah dibuka</strong>. Jika anda keluar sekarang, <strong>anda tidak akan dapat mengaksesnya lagi. </strong></p></section>
+        <section class="tsl-block tsl-qualification"><p><strong>Anda dan 9 Wanita Lain Telah Layak. 990 wanita telah tidak layak.</strong></p></section>
+        <section class="tsl-block"><p>Jika anda sampai sejauh ini, anggaplah diri anda wanita yang bertuah. Hanya 10 daripada 1000 wanita akan mendapat akses kepada kandungan kontroversi yang anda akan lihat di sini.</p></section>
+        <section class="tsl-block"><p>Sebab semua eksklusiviti ini? Mudah sahaja...</p></section>
+        <section class="tsl-block"><p>Jika laman ini menjadi awam, ia berkemungkinan besar akan menamatkan kebanyakan perkahwinan selebriti yang mungkin anda kenali.</p></section>
+        <section class="tsl-block"><p>Jadi di sini saya akan mendedahkan muslihat kotor wanita-wanita pekerja seks untuk mengekalkan lelaki paling kaya, berkuasa dan terkenal di Thailand <strong>MEMBAYAR</strong> untuk seks, sementara isteri mereka meminta perhatian dan menjadi kecewa serta cemas di rumah.</p></section>
+        <section class="tsl-block"><p>Jadi, jika anda bijak, anda akan mencuri muslihat yang sama untuk digunakan pada suami anda, atau lelaki yang anda sayangi, dan memastikan dia tidak akan pernah mengkhianati anda, menjadi sepenuhnya setia dan terobsesi dengan anda juga.</p></section>
+        <section class="tsl-block"><p>Sama seperti yang berlaku dengan Maíra Cardi, seorang influencer Brazil yang cukup terkenal, yang membuat usahawan multimilionair Thiago Nigro berpisah daripada hubungan lebih 10 tahun.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/01.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/02.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Dan pula, hanya 1 bulan kemudian, mengumumkan hubungan dengannya. Dan berkahwin pada tahun yang sama, dengan rejim perkongsian harta sepenuhnya, di mana secara automatik separuh daripada hartanya didaftarkan atas namanya.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/03.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p><em>(Thiago, 1 bulan selepas berpisah dengan Camila dan Mengumumkan hubungan dengan Maíra, wanita yang dia gunakan untuk mengkhianati bekas isterinya)</em></p></section>
+        <section class="tsl-block"><p>Namun, sekarang saya terpaksa memberitahu anda bahawa perkara akan mula menjadi lebih panas dan lebih kontroversi. Jadi bersiaplah untuk melihat perkara yang media tidak akan pernah dedahkan kepada anda.</p></section>
+        <section class="tsl-block"><p>Selamat berkenalan, nama saya Renata Maciel, dan saya adalah pekerja seks dan pendamping mewah profesional.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/04.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/05.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/06.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Maksudnya, saya adalah wanita yang ramai usahawan, artis dan atlet terkenal mengkhianati isteri mereka dengannya.</p></section>
+        <section class="tsl-block"><p>Dan sekarang saya akan mengajar anda muslihat paling kotor saya untuk mengekalkan bahkan lelaki kaya, terkenal dan berkuasa sepenuhnya setia kepada saya, mengkhianati isterinya, membawa saya makan di restoran mahal dan juga melancong secara sembunyi daripada isteri mereka.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/07.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p><em>(Di sini saya melawat Las Vegas, Ibu Kota Hiburan buat pertama kali, dengan perbelanjaan seorang Pembicara Motivasi yang sangat terkenal di Internet)</em></p></section>
+        <figure class="tsl-product-figure"><img src="assets/08.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p><em>(Dan di sini saya melawat Amerika Syarikat buat kali kedua, di negeri California, sebelum pergi ke Disney, dibiayai oleh seorang Aktor dari [Aktor dari Stesen Nasional Negara])</em></p></section>
+        <section class="tsl-block"><p>Dan tengok, biar saya ceritakan gosip yang sangat kotor sebelum anda pergi lebih jauh. Apa yang saya dedahkan di sini, saya tidak pernah komen secara terbuka. Ini saya tidak sepatutnya tunjukkan kepada anda.</p></section>
+        <section class="tsl-block"><p>Namun, selepas suami seorang rakan saya, penari dalam program auditorium yang sangat terkenal, cuba tempah masa dengan saya tanpa tahu siapa saya, saya memutuskan untuk buat halaman ini, yang hanya online 1 hari setiap 4 bulan, untuk mengajar 10 wanita bertuah muslihat utama yang digunakan oleh saya dan rakan-rakan sekerja saya.</p></section>
+        <section class="tsl-block"><h2 class="tsl-headline"><strong>Amaran:</strong> Mulai sekarang, <strong>kandungan menjadi sangat sulit.</strong> Ingat bahawa jika anda tutup halaman ini, anda tidak akan dapat melihatnya lagi.</h2></section>
+        <section class="tsl-block"><p>Jadi, sebelum saya serahkan muslihat itu, biar saya buat ujian pantas dengan anda, hanya 3 soalan.</p></section>
+        <section class="tsl-block"><p>Angkat jari jika anda pernah memandang telefon bimbit, menunggu jawapan mesra daripadanya yang tidak pernah datang atau menunggu dia keluar dari telefon dan memberi perhatian kepada anda.</p></section>
+        <section class="tsl-block"><p>Angkat jari jika anda pernah tangkap dia menonton porno secara sembunyi, dan berpura-pura tidak melihat, menelan ketulan di kerongkong.</p></section>
+        <section class="tsl-block"><p>Angkat jari jika anda pernah bertanya pada diri sendiri, seorang diri di bilik mandi, jika badan wanita lain lebih baik daripada badan anda.</p></section>
+        <section class="tsl-block"><p>Jika anda mengangkat jari untuk sekurang-kurangnya satu daripadanya, kekal bersama saya, kerana apa yang saya akan tunjukkan sekarang dibuat khusus untuk wanita seperti anda.</p></section>
+        <section class="tsl-block"><h2 class="tsl-headline"><strong>JADI, APAKAH MUSLIHAT INI?</strong></h2></section>
+        <section class="tsl-block"><p>Muslihatnya adalah menguasai seni blowjob yang tidak dapat dilupakan.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/09.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Sama seperti Maíra sedang lakukan dalam video sulit yang dia hantar dalam kumpulan pendamping mewah kami, untuk menguasai minda dan hati Thiago semasa dia masih berkahwin.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/10.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><h2 class="tsl-headline">Dan sebelum anda fikir, apa yang istimewa dalam hal ini, saya selalu buat dia pancut?</h2></section>
+        <section class="tsl-block"><p>Baiklah, memang begitu.</p></section>
+        <section class="tsl-block"><p>Saya tahu bahawa ini, bagi anda, mungkin kelihatan seperti tanda bahawa seks anda dengannya hebat. Lebih-lebih lagi kerana kami, wanita, selalu diajar bahawa jika dia pancut, sudah bagus.</p></section>
+        <section class="tsl-block"><p>Tetapi, sayang, malangnya tidak begitu.</p></section>
+        <section class="tsl-block"><p>Sama seperti kami kadang-kadang berpura-pura orgasme, lelaki juga boleh berpura-pura bahawa semuanya baik selepas pancut.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/11.png" alt="" loading="lazy"></figure>
+        <figure class="tsl-product-figure"><img src="assets/12.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/13.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Dan sebelum anda fikir ini kerana kurangnya keberanian anda, biar saya tenangkan anda sekarang. Anda tidak melakukan apa-apa yang salah. Masalahnya bukan kehendak anda, bukan badan anda. Masalahnya adalah tiada siapa pernah mengajar anda teknik yang betul, dan itu akan saya betulkan sekarang.</p></section>
+        <section class="tsl-block"><p>Oleh itu, untuk blowjob yang tidak dapat dilupakan, yang membuat dia berhubung secara emosi dengan anda dan menjadikan anda keutamaan nombor satu dalam hidupnya, diperlukan lebih daripada sekadar membuat dia pancut. Ia perlu menggunakan apa yang saya dan rakan-rakan sekerja panggil <strong>EFEK MULUT VELVET</strong>.</p></section>
+        <section class="tsl-block"><p>Dan di sini adalah rahsia kotor di sebalik nama ini.</p></section>
+        <section class="tsl-block"><p>Perhatikan perkataan ini, <strong>velvet</strong>, kerana ia adalah kunci kepada segala yang saya akan ajar.</p></section>
+        <section class="tsl-block"><p>Sebuah faraj, dubur, badan, adalah saling boleh ditukar dalam otak lelaki. Dia tukar posisi, tukar wanita, dan bagi otak reproduktifnya, semuanya pada asasnya sensasi fizikal yang sama, hanya dibalut dalam badan yang berbeza.</p></section>
+        <section class="tsl-block"><p>Tetapi mulut tidak.</p></section>
+        <section class="tsl-block"><p>Mulut mempunyai irama, tekanan, suhu, air liur, pandangan, pernafasan dan cara anda menelan pada akhirnya. Dan kombinasi khusus ini, dilakukan dengan cara anda, menjadi sejenis cap jari seksual dalam ingatannya.</p></section>
+        <section class="tsl-block"><p>Itulah sebabnya seorang lelaki lupa dengan posisi mana yang dia lakukan minggu lepas, tetapi tidak pernah lupa blowjob yang benar-benar meninggalkan kesan padanya.</p></section>
+        <section class="tsl-block"><p>Dan tepat cap ini, EFEK MULUT VELVET ini, yang membuat dia menghapuskan keinginan untuk mencari keseronokan dengan mana-mana wanita lain, kerana di dasar otaknya, tiada siapa lagi boleh menghasilkan semula itu dengan cara yang sama.</p></section>
+        <section class="tsl-block"><p>Dalam kumpulan WhatsApp kami sendiri, wanita yang mempunyai ego terlalu besar untuk belajar cap dagangan ini dengan kami, akhirnya menjadi bahan jenaka!</p></section>
+        <section class="tsl-block"><p>Seorang daripada mereka, sebagai contoh, adalah Luísa Sonza, seorang penyanyi dan influencer yang sangat terkenal di Brazil, yang melihat teman lelakinya disedut oleh orang lain di tandas sebuah bar, kerana tidak pernah mahu belajar.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/14.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Tetapi yang paling teruk, adalah Bruna Biancardi, bekas teman wanita dan sekarang, isteri semasa Neymar. Kami bertegas supaya dia belajar dengan kami, kerana kami tahu seks akan terganggu, dan hanya EFEK MULUT VELVET boleh menyelamatkan hubungannya. Tetapi ego kecilnya bercakap lebih kuat kali pertama, sama seperti keinginan Neymar untuk disedut dengan betul juga…</p></section>
+        <figure class="tsl-product-figure"><img src="assets/15.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Dan hasilnya semua orang tahu, dia mengaku secara terbuka bahawa dia mengkhianatinya walaupun dia hamil.</p></section>
+        <section class="tsl-block"><p>Ini hanyalah dua contoh daripada beribu-ribu yang berlaku dalam dunia selebriti. Saya sudah digunakan untuk mengkhianati setiap selebriti wanita yang anda tidak bayangkan.</p></section>
+        <section class="tsl-block"><p>Tetapi saya mahu anda bayangkan hanya untuk satu minit.</p></section>
+        <section class="tsl-block"><p>Jika ini berlaku kepada lelaki yang boleh memilih wanita yang mereka mahu untuk berkahwin, kerana mereka mempunyai wang, kemasyhuran dan kuasa.</p></section>
+        <section class="tsl-block"><h2 class="tsl-headline">Bayangkan sahaja bilangan <strong>lelaki biasa yang mengkhianati isteri mereka apabila ada peluang.</strong></h2></section>
+        <section class="tsl-block"><p>Data sendiri menunjukkan bahawa 91% lelaki sudah tidak setia dan mengkhianati wanita mereka, dan mereka sendiri mengatakan itu dengan terus terang.</p></section>
+        <section class="tsl-block"><p>Dan saya rasa jika anda bertanya kepada mana-mana wanita ini sebelum pengkhianatan, "anda rasa dia akan mengkhianati anda", dia juga akan jawab, tidak pernah.</p></section>
+        <section class="tsl-block"><p>Hanya sahaja tepat perkara yang kita fikir mereka tidak akan pernah lakukan, yang mereka lakukan.</p></section>
+        <section class="tsl-block"><p>Jadi, tepat untuk mengelakkan ini berlaku kepada anda, yang merupakan salah seorang daripada 10 bertuah di laman ini hari ini, saya memutuskan untuk kumpulkan semua daripada kumpulan pendamping mewah teratas kami di Thailand untuk menulis panduan yang sangat praktikal tentang teknik dan muslihat kotor kami untuk <strong>Blowjob yang Tidak Dapat Dilupakan</strong>.</p></section>
+        <section class="tsl-block"><p>Sehingga membuat seorang lelaki sepenuhnya setia dan jatuh cinta dengan anda, melihat kebahagiaan anda dan kesatuan keluarga anda berdua sebagai keutamaan nombor satu dalam hidupnya.</p></section>
+        <section class="tsl-block"><p>Dan kami memutuskan untuk gelar panduan ini sebagai.</p></section>
+        <section class="tsl-block"><h2 class="tsl-headline"><strong>Manual Kesetiaan.</strong></h2></section>
+        <section class="tsl-block"><p>Di dalamnya anda akan tahu dengan tepat apa yang saya lakukan untuk membuat lelaki seperti ini mengkhianati isteri mereka dan menjadi sepenuhnya jatuh cinta dan setia kepada saya, membawa saya dengan mereka ke pelbagai tempat di dunia.</p></section>
+        <section class="tsl-block"><p>Dalam rakaman di mana wajah mereka tidak muncul, kerana kerahsiaan, sudah tentu, anda boleh lihat sedikit teknik rahsia dan paling kotor yang anda akan terima.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/16.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Di sini saya bersama seorang pemain bola sepak Thailand yang bermain dalam pasukan gergasi Eropah, sementara isterinya menjaga dua anak kecil di rumah.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/17.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Dan di dalamnya saya gunakan <strong>Lidah Licin</strong>, yang membuat dia merasai mulut anda yang lembut, halus dan tanpa geseran langsung, membawa dia meletup dengan keseronokan. Anda akan jumpainya di bab 4 Manual.</p></section>
+        <section class="tsl-block"><p>Sudah pada hari ini, saya sedang menyedut seorang pembentang TV yang sangat terkenal, yang baru sahaja bergaduh teruk dengan isterinya dan memanggil saya dengan segera untuk melegakan tekanan dan bercakap buruk tentangnya di belakang.</p></section>
+        <section class="tsl-block"><p>Kerana dia sudah bosan dengannya, saya terus ke <strong>Titik G Lelaki</strong> untuk membuat dia pancut dengan cepat dan melegakan tekanan sekali gus. Pada hari itu, selepas pancutan pertama, kami berhubungan seks sepanjang malam, sementara dia memberi alasan bahawa dia sedang membantu rakan-rakan.</p></section>
+        <section class="tsl-block"><p>Anda akan jumpai segala-galanya tentang <strong>Titik G Lelaki</strong> di bab 2 Manual.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/17-02.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Sementara di sini saya sangat bersemangat untuk menyedut seorang penyanyi Luk Thung yang sangat terkenal, yang penat dengan kerja dan rutin persembahan dan akan membawa saya ke Eropah, dengan alasan bahawa dia pergi untuk urusan kepada isterinya.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/18.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Teknik yang saya mula gunakan pada masa ini, saya panggil <strong>Cap pada Gigitan Pertama</strong>, dan ia akan dijelaskan bab demi bab, dalam modul Segala Yang Anda Perlu Tahu Untuk Memulakan <strong>Blowjob yang Tidak Dapat Dilupakan</strong>.</p></section>
+        <section class="tsl-block"><p>Di sini, saya sedang menerapkan <strong>Teknik Orgastik Testikular</strong> bersama seorang rakan sekerja lagi, pada pemilik podcast yang sangat terkenal, dengan jutaan tontonan di YouTube.</p></section>
+        <section class="tsl-block"><p>Ini merangsang dia untuk mengeluarkan air mani lebih banyak, dan jika anda agak rakus seperti saya, saya jamin anda akan suka.</p></section>
+        <section class="tsl-block"><p>Teknik Orgastik Testikular ini diajar di bab 7 Manual.</p></section>
+                <figure class="tsl-product-figure"><img src="assets/19.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Akhir sekali, di sini saya, bersama kekasih pilihan (kawan isteri) seorang pemain bola sepak juara berganda, dan dia sedang membantu saya menerapkan Tenggorokan Dalam yang membuat dia gila untuk terima.</p></section>
+        <section class="tsl-block"><p>Yang paling lucu adalah 20 minit yang lalu dia baru sahaja terima blowjob daripada isterinya, tetapi ia begitu buruk sehingga dia memberi alasan mesyuarat kecemasan dan datang berlari untuk bahagia dengan kami.</p></section>
+        <section class="tsl-block"><p>Dan jangan risau, walaupun ia teknik lanjutan, anda akan belajar semua rahsia kami tentangnya dalam modul <strong>Teknik Lanjutan Manual</strong>.</p></section>
+        <section class="tsl-block"><p>Jadi, beritahu saya satu perkara kecil.</p></section>
+        <section class="tsl-block"><p>Adakah anda menyedari kuasa yang <strong>EFEK MULUT VELVET</strong> akan berikan kepada anda di tangan?</p></section>
+        <section class="tsl-block"><p>Sekarang biar saya ceritakan bagaimana manual ini lahir, kerana ini juga sebahagian daripada rahsia kotor.</p></section>
+        <section class="tsl-block"><p>Selepas suami rakan penari saya cuba cari saya tanpa tahu siapa saya, saya menjadi terganggu. Jika berlaku kepadanya, boleh berlaku kepada mana-mana wanita yang saya kenal.</p></section>
+        <section class="tsl-block"><p>Jadi saya panggil 14 rakan sekerja lain, dari bandar yang berbeza di Thailand, dan minta setiap seorang tulis, tanpa penapis, dengan tepat apa yang dia lakukan untuk menjadikan seorang lelaki tunduk.</p></section>
+        <section class="tsl-block"><p>Dalam 6 minggu, kami kumpulkan lebih 12 ribu mesej suara dan teks yang ditukar antara kami, membandingkan teknik demi teknik, menyesuaikan apa yang berfungsi dan membuang apa yang tidak berfungsi sebenarnya.</p></section>
+        <section class="tsl-block"><p>Kami ada 3 malam penuh hanya untuk menyusun ini dalam bab, kerana setiap seorang daripada kami mempunyai cara yang berbeza untuk menerangkan perkara yang sama, dan kami mahu mana-mana wanita, walaupun tanpa pengalaman langsung, boleh terapkan tanpa teragak-agak.</p></section>
+        <section class="tsl-block"><p>Dan begitulah <strong>Manual Kesetiaan</strong> lahir, dengan 8 bab, dari asas, iaitu <strong>EFEK MULUT VELVET</strong>, sehingga <strong>Teknik Lanjutan</strong>, yang biasanya kami hanya ajar kepada rakan sekerja lain, tidak pernah kepada wanita luar.</p></section>
+        <section class="tsl-block"><p>Sekarang, yang terbaik, adalah kerana kami tidak ada niat langsung untuk mendapat keuntungan daripadanya, dan hanya mahu mulakan tahun dengan memberikan hadiah kecil kepada 10 bertuah,</p></section>
+        <section class="tsl-block"><p>mendedahkan tanpa segan silu bagaimana lelaki sebenarnya dan apa yang membuat mereka setia sebenar atau mengkhianati dengan terus terang.</p></section>
+        <section class="tsl-block"><p>Daripada caj R$250, R$500 atau sehingga R$1.000, yang kami boleh dapat dengan mengambil telefon dan menelefon beberapa usahawan atau aktor terkenal, kami hanya akan minta wang untuk bayar pengaturcara yang mengekalkan laman ini online, sehingga anda 10 beli Manual.</p></section>
+        <section class="tsl-block"><p>Kerana pengaturcara caj R$390 untuk mengekalkan laman ini online sehingga 10 pembelian, anda hanya perlu melabur R$39,90 untuk mendapat akses kepada rahsia dan teknik paling kotor Manual Kesetiaan sepenuhnya, sekarang juga.</p></section>
+        <section class="tsl-block"><p>Hanya klik butang di bawah, masukkan data pembayaran anda, boleh kad atau pix, dan buat pembayaran.</p></section>
+        <section class="tsl-block"><p>Wang akan masuk terus ke akaun pengaturcara, jadi kami tidak akan tahu nama anda. Dan dalam bil kad juga hanya akan muncul huruf seperti MDL, tiada kaitan dengan kandungan yang anda akan terima.</p></section>
+        <button class="btn-action pulse-btn" type="button" aria-label="Butang" onclick="window.location.href='http://pay.hotmart.com/'">DAPATKAN MANUAL KESETIAAN DENGAN HANYA RM39.90</button>
+        <section class="tsl-block"><h2 class="tsl-headline">Sekarang, jika anda masih bertanya bagaimana <strong>EFEK MULUT VELVET</strong> berfungsi dalam praktik dalam hubungan anda sendiri, biar saya jelaskan.</h2></section>
+        <section class="tsl-block"><p>Tahu pada permulaan hubungan anda, di mana segala-galanya indah dan dia balas serta-merta, membawa anda keluar, bercakap tentang anda di hadapan rakan-rakan dan melakukan seks yang sengit dan penuh nafsu dengan anda?</p></section>
+        <section class="tsl-block"><p>Ini berlaku kerana, dalam kepalanya, segala-galanya baru. Setiap hubungan seksual yang dia ada dengan anda adalah kebaharuan untuk otaknya.</p></section>
+        <section class="tsl-block"><p>Dan oleh itu, hormon seperti dopamin, yang memotivasinya untuk berhubungan seks dengan anda, dan oksitosin, yang membuat dia mencipta ikatan dan cinta kepada anda, berada pada tahap paling tinggi.</p></section>
+        <section class="tsl-block"><p>Namun, sepanjang masa, hubungan anda mungkin jatuh sedikit ke rutin.</p></section>
+        <section class="tsl-block"><p>Ini adalah apa yang pelanggan saya paling adukan. Monotoni yang merupakan kehidupan mereka dengan isteri. Bahawa segala-galanya selalu sama.</p></section>
+        <section class="tsl-block"><p>Dan tepat di situlah keindahan <strong>EFEK MULUT VELVET</strong> masuk.</p></section>
+        <section class="tsl-block"><p>Kerana berbeza dengan seks biasa, yang menjadi sejuk kerana diulang, mulut yang terlatih dengan teknik baru boleh mencipta semula sensasi kali pertama, berkali-kali, tanpa pernah menjadi rutin, semata-mata kerana setiap butiran, irama, tekanan dan pandangan, boleh disesuaikan dan dicipta semula oleh anda.</p></section>
+        <section class="tsl-block"><p>Dan selepas lebih 5.000 lelaki berkahwin yang sudah melalui tangan saya, saya boleh sahkan satu perkara kepada anda.</p></section>
+        <section class="tsl-block"><p>Bukan badan yang meletihkan lelaki. Ia adalah kekurangan teknik yang menjadi rutin.</p></section>
+        <section class="tsl-block"><p>Ini kerana, seperti yang anda sudah tahu, perkara yang paling disukai lelaki adalah seks. Namun, berita besar di sini adalah bahawa, bagi mereka, <strong>SEKS FARAJ DAN DUBUR, SELALU PERKARA YANG SAMA!</strong></p></section>
+        <section class="tsl-block"><h2 class="tsl-headline">Apabila seorang lelaki melihat wanita berbeza dalam posisi empat, sisi, menunggang atau bahkan melakukan seks dubur, <strong>baginya semuanya perkara yang sama.</strong></h2></section>
+        <figure class="tsl-product-figure"><img src="assets/20.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/21.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/22.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/23.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Otak tidak rasional dan reproduktifnya fikir, punggung sedap, dan zakarnya serta-merta menjadi keras dan sedia untuk dia masukkan dan pancut.</p></section>
+        <section class="tsl-block"><p>Lelaki hampir selalu menjadi keras apabila melihat wanita telanjang.</p></section>
+        <section class="tsl-block"><p>Sebenarnya, banyak kali hanya saya tanggalkan baju, berada dalam posisi empat, biarkan mereka masukkan dan tidak buat apa-apa lagi, walaupun begitu mereka selalu pancut.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/24.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/25.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Perhatikan bagaimana saya hanya tidak perlu buat apa-apa di sini, dan mereka pancut.</p></section>
+        <section class="tsl-block"><p>Maksudnya, jika ada wanita lain di tempat saya, <strong>AKAN PERKARA YANG SAMA</strong>, dan hampir tiada perbezaan langsung.</p></section>
+        <section class="tsl-block"><p>Sekarang, jika saya perlu seorang lelaki menjadi ketagih dan setia kepada saya, memuji saya setiap masa, menjemput makan di restoran hebat dan membawa saya melancong ke luar negara, satu-satunya perkara yang saya perlu lakukan adalah mengaktifkan <strong>EFEK MULUT VELVET</strong>.</p></section>
+        <section class="tsl-block"><p>Dan di sini adalah sebabnya.</p></section>
+        <section class="tsl-block"><p>Blowjob adalah lebih daripada sekadar pergerakan penetrasi mudah, di mana zakar masuk dan keluar dari lubang, seperti dalam seks dubur atau faraj.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/26.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Di dalamnya, bibir, lidah, air liur dan tekak masuk ke dalam tindakan. Belum lagi postur anda, cara anda memandang dan senyum kepadanya. Dan bahkan apa yang anda lakukan apabila dia pancut, yang adalah pencetus yang kami panggil <strong>Cap Pancutan</strong>, dan yang menyegel ingatan ini dalam kepalanya dengan cara yang tiada wanita lain boleh salin.</p></section>
+        <section class="tsl-block"><p>Faktor-faktor ini, yang bergantung hanya pada anda, memberi anda keupayaan untuk menyediakan pengalaman baru dan unik kepadanya, satu demi satu.</p></section>
+        <section class="tsl-block"><p>Membuat anda mempunyai keupayaan untuk mengambil kawalan penuh terhadap apa yang anda mahu dia rasa atau tidak.</p></section>
+        <section class="tsl-block"><p>Dan itulah sebabnya <strong>Manual Kesetiaan</strong>, di mana anda menguasai <strong>EFEK MULUT VELVET</strong>, adalah kunci untuk mengekalkan keluarga anda dengannya bersatu dan bahagia sehingga akhir.</p></section>
+        <section class="tsl-block"><p>Sama seperti yang berlaku dengan Maíra dan Thiago.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/27.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/28.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Dan sama seperti yang berlaku dengan wanita yang sangat sedikit yang sudah mendapat akses kepada kandungan Manual, dan melaporkan bahawa suami atau teman lelaki.</p></section>
+        <section class="tsl-block tsl-list-line"><p>1. Tidak menolak seks lagi, dan melakukannya dengan lebih banyak nafsu dan keamatan, memberi ciuman penuh cinta dan membawa dia ke orgasme yang dia tidak pernah alami sebelum ini.</p></section>
+        <section class="tsl-block tsl-list-line"><p>2. Mula balas mesejnya serta-merta dan tanpa kasar, malah lebih mesra daripada biasa.</p></section>
+        <section class="tsl-block tsl-list-line"><p>3. Mula menolak jemputan untuk keluar dan minum dengan rakan-rakan, menjadikannya keutamaan nombor satu dalam hidupnya.</p></section>
+        <section class="tsl-block tsl-list-line"><p>4. Mula kelihatan seperti sama pada permulaan hubungan, menunjukkan lebih kebimbangan, memberi lebih perhatian, mendedikasikan lebih masa kepadanya dan malah merancang percutian..</p></section>
+        <section class="tsl-block"><p>Oleh itu, jika anda juga mahu manfaatkan peluang untuk hidup perkara yang sama, dan lihat semua rakan wanita anda iri hati dengan pasangan yang anda dan suami anda menjadi, hanya sekarang, sebelum anda tutup halaman ini dan tidak boleh lihat lagi, anda boleh menjadi salah seorang daripada 10 wanita di Thailand yang akan dapat hadiah kecil permulaan tahun ini hanya dengan R$39,90.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/29.png" alt="" loading="lazy"></figure>
+        <button class="btn-action pulse-btn" type="button" aria-label="Butang" onclick="window.location.href='http://pay.hotmart.com/'">DAPATKAN MANUAL KESETIAAN DENGAN HANYA RM39.90</button>
+        <section class="tsl-block"><p>Baiklah, jika anda masih belum memutuskan kerana fikiran bodoh dan membataskan, saya tidak boleh tinggalkan tanpa komen satu perkara kecil lagi dengan anda.</p></section>
+        <section class="tsl-block"><p>Kerana jika anda masih mempunyai ketidakselesaan yang sangat biasa walaupun pada kami wanita, jenis, ah, tetapi saya gemuk dan hodoh, oleh itu suami saya tidak mahu berhubungan seks dengan saya, biar saya buat soalan mudah kepada anda.</p></section>
+        <section class="tsl-block"><h2 class="tsl-headline"><strong>Adakah anda rasa normal seorang lelaki menolak seks?</strong></h2></section>
+        <section class="tsl-block"><p>Satu-satunya sebab dia menolak seks adalah kerana dia tidak menyukainya.</p></section>
+        <section class="tsl-block"><p>Kerana, pada dasarnya, apabila mereka suka, mereka bahkan bayar mahal untuk dapat sensasi itu lagi, seperti yang berlaku dengan saya dan rakan-rakan sekerja saya.</p></section>
+        <section class="tsl-block"><p>Anda sendiri boleh ingat pasangan yang anda kenal, di mana lelaki jauh lebih handsome daripada wanita, tetapi walaupun begitu berada di sisinya setia dan membina keluarga.</p></section>
+        <section class="tsl-block"><p>Sebabnya? Sekarang anda sudah tahu.</p></section>
+        <section class="tsl-block"><p>Blowjob yang baik jauh lebih penting daripada penampilan yang baik.</p></section>
+        <section class="tsl-block"><p>Akhirnya, setiap lelaki tahu bahawa penampilan boleh diperbaiki dengan salon kecantikan, prosedur estetik dan gimnasium. Sudah seorang wanita yang menguasai <strong>EFEK MULUT VELVET</strong> adalah sesuatu yang jarang, unik, dan yang menggerakkan fikiran paling impulsifnya.</p></section>
+        <section class="tsl-block"><p>Tetapi tahu yang terbaik? Lelaki juga suka wanita yang lebih montel, saya bercakap serius.</p></section>
+        <section class="tsl-block"><h2 class="tsl-headline"><strong>"Ahh Tetapi Saya Gemuk dan Hodoh, Oleh Itu Suami Saya Tidak Mahu Berhubungan Seks Dengan Saya!"</strong></h2></section>
+        <section class="tsl-block"><p>Malah dalam video porno yang mereka tonton, ada pelakon plus size sebenar, dengan badan jauh daripada piawaian kurus majalah, dengan jutaan tontonan.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/30.png" alt="" loading="lazy"></figure>
+<figure class="tsl-product-figure"><img src="assets/31.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Semua mereka dianggap "gemuk dan kurang menarik" untuk kebanyakan wanita…</p></section>
+        <section class="tsl-block"><p>Tetapi jika lelaki tidak suka melihat mereka menyedut zakar, adakah anda rasa mereka akan mempunyai reputasi dan tontonan sebanyak itu?</p></section>
+        <section class="tsl-block"><p>Ini adalah bukti bahawa, sebenarnya, apa yang berlaku semasa seks jauh lebih penting daripada dengan siapa dia melakukan seks.</p></section>
+        <section class="tsl-block"><p>Jadi, untuk anda yang lebih montel dan ada masalah dengan itu, jangan risau. Pada dasarnya, dia hanya mahu merasai cap anda.</p></section>
+        <section class="tsl-block"><p>Sekarang, akhir sekali, saya hanya ada satu perkara kecil yang sangat penting untuk beri amaran. Dan yang sangat merugikan wanita yang cuba menguasai seni ini.</p></section>
+        <section class="tsl-block"><p>Filem porno.</p></section>
+        <section class="tsl-block"><p>Tolong, demi kebaikan anda, jangan tutup halaman ini sambil fikir anda boleh pergi tengok filem-filem itu dan belajar menyedutnya sendiri.</p></section>
+        <section class="tsl-block"><p>Saya hanya tunjukkan mereka di sini untuk buktikan bahawa, jika lelaki menonton, adalah kerana mereka mimpi dapat blowjob yang baik, tidak kira dari siapa. Ini adalah kunci untuk membuat lelaki setia.</p></section>
+        <section class="tsl-block"><p>Hanya sahaja filem keseluruhan direka untuk visual yang seksi, dan aktor yang ada di sana tidak dibayar untuk rasa keseronokan, tetapi untuk kekal keras, supaya pengarah boleh buat potongan dan teroka sudut terbaik.</p></section>
+        <section class="tsl-block"><p>Maksudnya, itu bukan kehidupan sebenar, dan banyak posisi yang anda lihat di sana sangat tidak selesa, dan aktor perlu bersungguh-sungguh untuk berpura-pura keseronokan.</p></section>
+        <section class="tsl-block"><p>Percayalah, saya menyedut zakar pelbagai bentuk dan saiz setiap hari, dan tahu apa yang saya cakapkan.</p></section>
+        <section class="tsl-block"><p>Sekarang, juga bukan pembohongan bahawa suami atau teman lelaki anda mencari di tempat lain apa yang dia tidak ada di rumah dengan anda.</p></section>
+        <section class="tsl-block"><p>Dan tahu langkah seterusnya? Baiklah, malangnya saya perlu jujur di sini.</p></section>
+        <section class="tsl-block"><p>Adalah dia hantar mesej seperti ini kepada saya, atau kepada salah seorang daripada beribu-ribu rakan sekerja saya di seluruh Thailand, meminta untuk tempah masa.</p></section>
+        <figure class="tsl-product-figure"><img src="assets/32.png" alt="" loading="lazy"></figure>
+        <section class="tsl-block"><p>Bayangkan melihat lelaki yang anda sangat sayangi melakukan ini, sementara anda bersungguh-sungguh memberi cinta, kasih sayang dan perhatian kepadanya?</p></section>
+        <section class="tsl-block"><p>Ini adalah sensasi yang tiada wanita yang benar-benar sayangkan suaminya dan mahu keluarga bersatu dan setia patut alami.</p></section>
+        <section class="tsl-block"><p>Dan oleh itu, untuk anda pastikan ini tidak pernah berlaku kepada anda, hanya manfaatkan peluang unik dan menjadi salah seorang daripada 10 wanita terpilih pada permulaan tahun ini untuk mendapat akses ke Manual Kesetiaan, dan dengan itu mengaktifkan EFEK MULUT VELVET, hanya dengan.</p></section>
+        <section class="tsl-price"><p><strong>RM39.90. </strong></p></section>
+        <button class="btn-action pulse-btn" type="button" aria-label="Butang" onclick="window.location.href='http://pay.hotmart.com/'">DAPATKAN MANUAL KESETIAAN DENGAN HANYA RM39.90</button>
+        <div class="faq-block">
+  <div class="faq-question-box">Bila dan bagaimana saya akan terima Manual ini?</div>
+  <div class="faq-answer-box">Akses adalah serta-merta selepas anda selesaikan pembelian, dan terus ke e-mel anda. Sama seperti yang berlaku apabila kami hantar kepada kawan-kawan dan artis yang minta belajar bersama kami juga.</div>
+</div>
+        <div class="faq-block">
+  <div class="faq-question-box">Apakah kaedah pembayaran yang tersedia?</div>
+  <div class="faq-answer-box">Anda boleh pilih antara kad kredit dan pembayaran dalam talian.</div>
+</div>
+        <div class="faq-block">
+  <div class="faq-question-box">Sehingga bila saya boleh membuat pembelian ini?</div>
+  <div class="faq-answer-box">Seperti yang anda lihat, laman ini mengandungi maklumat yang tidak boleh bocor dengan apa cara sekalipun, dan sebab itu ia diprogramkan untuk hilang sebaik sahaja anda menutupnya. Sama ada anda pastikan akses anda sekarang, atau anda tidak akan dapat mengakses laman ini lagi, dan tempat anda akan diberikan kepada wanita lain. Kami sangat menghargai kerahsiaan perkara yang kami tunjukkan kepada anda di sini.</div>
+</div>
+        <figure class="tsl-product-figure"><img src="assets/33.png" alt="" loading="lazy"></figure>
+        <button class="btn-action pulse-btn" type="button" aria-label="Butang" onclick="window.location.href='http://pay.hotmart.com/'">DAPATKAN MANUAL KESETIAAN DENGAN HANYA RM39.90</button>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="popupModal">
+    <div class="modal-card">
+      <div class="modal-question">Adakah anda berminat untuk belajar teknik yang digunakan oleh wanita yang rapat dengan lelaki paling diidamkan di negara ini?</div>
+      <div class="modal-buttons">
+        <button class="btn-action" style="margin-top: 0;" onclick="closeModalAndProgress(true)">Ya</button>
+        <button class="option-button" style="justify-content: center; box-shadow: 2px 2px 0px var(--black);" onclick="closeModalAndProgress(false)">Belum pasti lagi</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let currentScreen = 1;
+    const totalScreens = 12;
+    const progressFill = document.getElementById('progressFill');
+    const liveCounterEl = document.getElementById('liveCounter');
+    const visitorWidget = document.getElementById('visitorWidget');
+    const quizAlertBar = document.getElementById('quizAlertBar');
+    const quizProgressBarContainer = document.getElementById('quizProgressBarContainer');
+    let activeAcessos = 984;
+    setInterval(() => {
+      const diff = Math.floor(Math.random() * 5) - 2;
+      activeAcessos += diff;
+      if (activeAcessos > 996) activeAcessos = 991;
+      if (activeAcessos < 980) activeAcessos = 983;
+      if (liveCounterEl) {
+        liveCounterEl.textContent = activeAcessos;
+      }
+    }, 2800);
+    function showScreen(screenNum) {
+      document.querySelectorAll('.screen').forEach(scr => {
+        scr.classList.remove('active');
+      });
+      const targetScreen = document.getElementById(`screen-${screenNum}`);
+      if (targetScreen) {
+        targetScreen.classList.add('active');
+        currentScreen = screenNum;
+      }
+      if (screenNum === 12 && visitorWidget) {
+        visitorWidget.style.display = 'none';
+      }
+      const progressPercent = (screenNum / totalScreens) * 100;
+      if (progressFill) {
+        progressFill.style.width = `${progressPercent}%`;
+      }
+      window.scrollTo(0, 0);
+      if (screenNum === 11) {
+        runLoadingFlow();
+      }
+    }
+    function nextScreen(screenNum) {
+      showScreen(screenNum);
+    }
+    function selectOption(currentScr, nextScr) {
+      const activeOptions = document.querySelectorAll(`#screen-${currentScr} .option-button`);
+      event.currentTarget.classList.add('clicked');
+      setTimeout(() => {
+        showScreen(nextScr);
+      }, 200);
+    }
+    function runLoadingFlow() {
+      const loaderProgressFill = document.getElementById('loaderProgressFill');
+      const step1 = document.getElementById('loading-step-1');
+      const step2 = document.getElementById('loading-step-2');
+      const step3 = document.getElementById('loading-step-3');
+      const spinner1 = document.getElementById('spinner-step-1');
+      const check1 = document.getElementById('check-step-1');
+      const spinner2 = document.getElementById('spinner-step-2');
+      const check2 = document.getElementById('check-step-2');
+      const spinner3 = document.getElementById('spinner-step-3');
+      const check3 = document.getElementById('check-step-3');
+      loaderProgressFill.style.width = '0%';
+      setTimeout(() => {
+        step1.classList.add('visible', 'active');
+        loaderProgressFill.style.width = '35%';
+      }, 300);
+      setTimeout(() => {
+        spinner1.style.display = 'none';
+        check1.style.display = 'block';
+        step1.classList.remove('active');
+        step2.classList.add('visible', 'active');
+        spinner2.style.display = 'block';
+        loaderProgressFill.style.width = '70%';
+      }, 1500);
+      setTimeout(() => {
+        const modal = document.getElementById('popupModal');
+        if (modal) {
+          modal.style.display = 'flex';
+        }
+      }, 3000);
+    }
+    function closeModalAndProgress(userAccepted) {
+      const modal = document.getElementById('popupModal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+      const loaderProgressFill = document.getElementById('loaderProgressFill');
+      const step2 = document.getElementById('loading-step-2');
+      const step3 = document.getElementById('loading-step-3');
+      const spinner2 = document.getElementById('spinner-step-2');
+      const check2 = document.getElementById('check-step-2');
+      const spinner3 = document.getElementById('spinner-step-3');
+      const check3 = document.getElementById('check-step-3');
+      spinner2.style.display = 'none';
+      check2.style.display = 'block';
+      step2.classList.remove('active');
+      step3.classList.add('visible', 'active');
+      spinner3.style.display = 'block';
+      loaderProgressFill.style.width = '100%';
+      setTimeout(() => {
+        spinner3.style.display = 'none';
+        check3.style.display = 'block';
+        step3.classList.remove('active');
+        setTimeout(() => {
+          showScreen(12);
+        }, 800);
+      }, 1500);
+    }
+
+    let tslCountdownInterval = null;
+    let tslStartTime = null;
+    function updateTslCountdown() {
+      const countdown = document.getElementById('tslCountdown');
+      if (!countdown || !tslStartTime) return;
+      const totalSeconds = 30 * 60;
+      const elapsed = Math.floor((Date.now() - tslStartTime) / 1000);
+      const remaining = Math.max(0, totalSeconds - elapsed);
+      const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+      const seconds = String(remaining % 60).padStart(2, '0');
+      countdown.textContent = `${minutes}:${seconds}`;
+    }
+    function startTslCountdown() {
+      tslStartTime = Date.now();
+      updateTslCountdown();
+      if (tslCountdownInterval) clearInterval(tslCountdownInterval);
+      tslCountdownInterval = setInterval(updateTslCountdown, 1000);
+    }
+    function showTSL() {
+      fbq('track', 'ViewContent');
+      const quizWrapper = document.querySelector('.app-wrapper');
+      const tsl = document.getElementById('tsl');
+      if (quizWrapper) quizWrapper.style.display = 'none';
+      if (quizAlertBar) quizAlertBar.style.display = 'none';
+      if (quizProgressBarContainer) quizProgressBarContainer.style.display = 'none';
+      const modal = document.getElementById('popupModal');
+      if (modal) modal.style.display = 'none';
+      if (tsl) tsl.style.display = 'block';
+      startTslCountdown();
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('btn-final-quiz').addEventListener('click', function() {
+  fbq('track', 'Lead');
+  showTSL();
+});
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"75124c326cb447fe934cde04713ae013","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
